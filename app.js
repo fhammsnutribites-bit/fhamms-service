@@ -11,10 +11,10 @@ const userRoutes = require('./routes/users');
 
 const app = express();
 
-// CORS configuration - allow requests from Vercel domain and localhost
+// CORS configuration - allow requests from frontend domain and localhost
 const allowedOrigins = [
+  process.env.FRONTEND_URL, // Frontend Vercel URL (required for separate deployments)
   process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
-  process.env.FRONTEND_URL,
   'http://localhost:3000',
   'http://localhost:5173' // Vite default port
 ].filter(Boolean);
